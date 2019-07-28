@@ -12,7 +12,7 @@ Export as a Spritesheet (File -> Export Spritesheet or just Ctrl+E), check JSON 
 and Frame Tags under meta are ticked. It's easier when both files have the same name 
 and are in the same folder.
 ### 2. Setup in Godot ###
-When You select a Sprite or a Sprite2D, a Dock will be added to the bottom left,
+When You select a Sprite or a Sprite2D, a Dock will be added to the bottom right,
 entitled "AnimSetter". It makes sense to first apply the texture, then go to the
 AnimSetter Dock. If the Json-file is in the same folder and has the same name as 
 the texture the Json-file will automatically be selected for you. If not, you can
