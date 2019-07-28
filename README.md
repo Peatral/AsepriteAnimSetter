@@ -1,17 +1,17 @@
-#Aseprite Anim Setter#
-##Table of Contents##
-1.[Introduction](#introduction)
-2.[Tutorial](#tutorial)
-##Introduction##
+# Aseprite Anim Setter #
+## Table of Contents ##
+1. [Introduction](#introduction)
+2. [Tutorial](#tutorial)
+## Introduction ##
 This tool originated from the repetive work of updating loads of Animations
 in Godot when I changed the Spritesheets with Aseprite. It started as a scipt,
 and turned into a "full fledged" addon.
-##Tutorial##
-###1. Export from Aseprite###
+## Tutorial ##
+### 1. Export from Aseprite ###
 Export as a Spritesheet (File -> Export Spritesheet or just Ctrl+E), check JSON Data
 and Frame Tags under meta are ticked. It's easier when both files have the same name 
 and are in the same folder.
-###2. Setup in Godot###
+### 2. Setup in Godot ###
 When You select a Sprite or a Sprite2D, a Dock will be added to the bottom left,
 entitled "AnimSetter". It makes sense to first apply the texture, then go to the
 AnimSetter Dock. If the Json-file is in the same folder and has the same name as 
