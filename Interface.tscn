@@ -1,0 +1,162 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/AsepriteAnimSetter/ImportJsonAnim.gd" type="Script" id=1]
+
+[node name="Animations" type="Tabs"]
+margin_right = 289.0
+margin_bottom = 309.0
+script = ExtResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 4
+custom_constants/margin_top = 4
+custom_constants/margin_left = 4
+custom_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 285.0
+margin_bottom = 305.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Buttons" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_right = 281.0
+margin_bottom = 22.0
+
+[node name="Update" type="ToolButton" parent="MarginContainer/VBoxContainer/Buttons"]
+margin_right = 58.0
+margin_bottom = 22.0
+text = "Update"
+
+[node name="DeleteAnims" type="ToolButton" parent="MarginContainer/VBoxContainer/Buttons"]
+margin_left = 62.0
+margin_right = 194.0
+margin_bottom = 22.0
+text = "Delete Animations"
+
+[node name="OptionsPanel" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 26.0
+margin_right = 281.0
+margin_bottom = 301.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelBackground" type="Panel" parent="MarginContainer/VBoxContainer/OptionsPanel"]
+margin_right = 281.0
+margin_bottom = 275.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/OptionsPanel"]
+margin_right = 281.0
+margin_bottom = 275.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/OptionsPanel/ScrollContainer"]
+margin_right = 285.0
+margin_bottom = 263.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="Grid" type="GridContainer" parent="MarginContainer/VBoxContainer/OptionsPanel/ScrollContainer/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 280.0
+margin_bottom = 258.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+
+[node name="FileLabel" type="Label" parent="MarginContainer/VBoxContainer/OptionsPanel/ScrollContainer/MarginContainer/Grid"]
+margin_top = 3.0
+margin_right = 119.0
+margin_bottom = 17.0
+text = "Json File"
+
+[node name="Select" type="Button" parent="MarginContainer/VBoxContainer/OptionsPanel/ScrollContainer/MarginContainer/Grid"]
+margin_left = 123.0
+margin_right = 275.0
+margin_bottom = 20.0
+text = "Select"
+
+[node name="FileDialog" type="FileDialog" parent="MarginContainer/VBoxContainer/OptionsPanel/ScrollContainer/MarginContainer/Grid/Select"]
+margin_left = 220.0
+margin_top = 97.0
+margin_right = 713.0
+margin_bottom = 439.0
+window_title = "Open a File"
+resizable = true
+mode = 0
+filters = PoolStringArray( "*.json ; JSON Files" )
+
+[node name="ModeLabel" type="Label" parent="MarginContainer/VBoxContainer/OptionsPanel/ScrollContainer/MarginContainer/Grid"]
+margin_top = 27.0
+margin_right = 119.0
+margin_bottom = 41.0
+text = "Frame Mode"
+
+[node name="Mode" type="OptionButton" parent="MarginContainer/VBoxContainer/OptionsPanel/ScrollContainer/MarginContainer/Grid"]
+margin_left = 123.0
+margin_top = 24.0
+margin_right = 275.0
+margin_bottom = 44.0
+text = "Hash"
+items = [ "Hash", null, false, -1, null, "Array", null, false, -1, null ]
+selected = 0
+
+[node name="FramesizeLabel" type="Label" parent="MarginContainer/VBoxContainer/OptionsPanel/ScrollContainer/MarginContainer/Grid"]
+margin_top = 53.0
+margin_right = 119.0
+margin_bottom = 67.0
+text = "Framesize"
+
+[node name="Framesize" type="HBoxContainer" parent="MarginContainer/VBoxContainer/OptionsPanel/ScrollContainer/MarginContainer/Grid"]
+margin_left = 123.0
+margin_top = 48.0
+margin_right = 275.0
+margin_bottom = 72.0
+
+[node name="FramesizeX" type="SpinBox" parent="MarginContainer/VBoxContainer/OptionsPanel/ScrollContainer/MarginContainer/Grid/Framesize"]
+margin_right = 74.0
+margin_bottom = 24.0
+min_value = 1.0
+max_value = 100000.0
+value = 64.0
+
+[node name="FramesizeY" type="SpinBox" parent="MarginContainer/VBoxContainer/OptionsPanel/ScrollContainer/MarginContainer/Grid/Framesize"]
+margin_left = 78.0
+margin_right = 152.0
+margin_bottom = 24.0
+min_value = 1.0
+max_value = 100000.0
+value = 64.0
+
+[node name="AnimPlayerLabel" type="Label" parent="MarginContainer/VBoxContainer/OptionsPanel/ScrollContainer/MarginContainer/Grid"]
+margin_top = 81.0
+margin_right = 119.0
+margin_bottom = 95.0
+text = "Anim Player Name"
+
+[node name="AnimPlayerName" type="LineEdit" parent="MarginContainer/VBoxContainer/OptionsPanel/ScrollContainer/MarginContainer/Grid"]
+margin_left = 123.0
+margin_top = 76.0
+margin_right = 275.0
+margin_bottom = 100.0
+text = "AnimationPlayer"
+expand_to_text_length = true
+caret_blink = true
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/Update" to="." method="updateanims"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/DeleteAnims" to="." method="deleteallanims"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsPanel/ScrollContainer/MarginContainer/Grid/Select" to="." method="on_Select_pressed"]
+[connection signal="file_selected" from="MarginContainer/VBoxContainer/OptionsPanel/ScrollContainer/MarginContainer/Grid/Select/FileDialog" to="." method="on_FileDialog_file_selected"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/OptionsPanel/ScrollContainer/MarginContainer/Grid/Mode" to="." method="on_Mode_item_selected"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/OptionsPanel/ScrollContainer/MarginContainer/Grid/Framesize/FramesizeX" to="." method="on_FramesizeX_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/OptionsPanel/ScrollContainer/MarginContainer/Grid/Framesize/FramesizeY" to="." method="on_FramesizeY_value_changed"]
+[connection signal="text_changed" from="MarginContainer/VBoxContainer/OptionsPanel/ScrollContainer/MarginContainer/Grid/AnimPlayerName" to="." method="on_AnimPlayerName_text_changed"]
